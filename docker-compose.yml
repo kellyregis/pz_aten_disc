@@ -29,22 +29,27 @@ services:
     networks:
       - traefik_public
     deploy:
-        mode: replicated
-        replicas: 1
-        placement:
-          constraints:
-            - node.role == manager
-        resources:
-          limits:
-            cpus: "0.5"
-            memory: 512M  
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+        reservations:
+          cpus: "0.25"
+          memory: 256M
     labels:
-        - traefik.enable=true
-        - traefik.http.routers.pz_app_atendimento.rule=Host(`baserow.onlegacy.com.br`)        
-        - traefik.http.routers.pz_app_atendimento.entrypoints=websecure
-        - traefik.http.routers.pz_app_atendimento.tls.certresolver=letsencryptresolver
-        - traefik.http.routers.pz_app_atendimento.service=pz_app_atendimento
-        - traefik.http.services.pz_app_atendimento.loadbalancer.server.port=8087  
+      - traefik.enable=true
+      - traefik.http.routers.pz_app_atendimento.rule=Host(`tickets.servidorprojetoz.com.br`)        
+      - traefik.http.routers.pz_app_atendimento.entrypoints=websecure
+      - traefik.http.routers.pz_app_atendimento.tls.certresolver=letsencryptresolver
+      - traefik.http.routers.pz_app_atendimento.service=pz_app_atendimento
+      - traefik.http.services.pz_app_atendimento.loadbalancer.server.port=8087
+      - traefik.http.routers.pz_app_atendimento.middlewares=compression
+      - traefik.http.middlewares.compression.compress=true
 
 volumes:
   pz_app_atendimento_disc_data:
