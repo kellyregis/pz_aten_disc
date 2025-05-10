@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  pz_app_atendimento:
+    image: kellyregis/pz_aten_disc:latest    
+    restart: always
+   # ports:
+   #   - "3005:3005"
+    volumes:
+      # Arquivos de configuração
+      - ./config.json:/app/config.json
+      - ./dono.json:/app/dono.json
+      - ./carrinhos.json:/app/carrinhos.json
+      
+      # Diretórios de dados
+      - ./DataBaseJson:/app/DataBaseJson
+      - ./ComandosSlash:/app/ComandosSlash
+      - ./Eventos:/app/Eventos
+      - ./Functions:/app/Functions
+      - ./Handler:/app/Handler
+      - ./Lib:/app/Lib
+      - ./routes:/app/routes      
+      # Arquivos de banco de dados
+      - ./json.sqlite:/app/json.sqlite         
+     
+    environment:
+      - NODE_ENV=production
+    networks:
+      - traefik_public
+    deploy:
+        mode: replicated
+        replicas: 1
+        placement:
+          constraints:
+            - node.role == manager
+        resources:
+          limits:
+            cpus: "0.5"
+            memory: 512M  
+    labels:
+        - traefik.enable=true
+        - traefik.http.routers.pz_app_atendimento.rule=Host(`tickets.servidorprojetoz.com.br`)        
+        - traefik.http.routers.pz_app_atendimento.entrypoints=websecure
+        - traefik.http.routers.pz_app_atendimento.tls.certresolver=letsencryptresolver
+        - traefik.http.routers.pz_app_atendimento.service=pz_app_atendimento
+        - traefik.http.services.pz_app_atendimento.loadbalancer.server.port=8087  
+
+
+networks:
+  traefik_public:
+    external: true
