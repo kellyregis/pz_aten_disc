@@ -8,20 +8,20 @@ services:
    #   - "3005:3005"
     volumes:
       # Arquivos de configuração
-      - ./config.json:/app/config.json
-      - ./dono.json:/app/dono.json
-      - ./carrinhos.json:/app/carrinhos.json
+      - pz_app_atendimento_disc_data:/config.json:/app/config.json
+      - pz_app_atendimento_disc_data:/dono.json:/app/dono.json
+      - pz_app_atendimento_disc_data:/carrinhos.json:/app/carrinhos.json
       
       # Diretórios de dados
-      - ./DataBaseJson:/app/DataBaseJson
-      - ./ComandosSlash:/app/ComandosSlash
-      - ./Eventos:/app/Eventos
-      - ./Functions:/app/Functions
-      - ./Handler:/app/Handler
-      - ./Lib:/app/Lib
-      - ./routes:/app/routes      
+      - pz_app_atendimento_disc_data:/DataBaseJson:/app/DataBaseJson
+      - pz_app_atendimento_disc_data:/ComandosSlash:/app/ComandosSlash
+      - pz_app_atendimento_disc_data:/Eventos:/app/Eventos
+      - pz_app_atendimento_disc_data:/Functions:/app/Functions
+      - pz_app_atendimento_disc_data:/Handler:/app/Handler
+      - pz_app_atendimento_disc_data:/Lib:/app/Lib
+      - pz_app_atendimento_disc_data:/routes:/app/routes      
       # Arquivos de banco de dados
-      - ./json.sqlite:/app/json.sqlite         
+      - pz_app_atendimento_disc_data:/json.sqlite:/app/json.sqlite         
      
     environment:
       - NODE_ENV=production
@@ -45,6 +45,9 @@ services:
         - traefik.http.routers.pz_app_atendimento.service=pz_app_atendimento
         - traefik.http.services.pz_app_atendimento.loadbalancer.server.port=8087  
 
+volumes:
+  pz_app_atendimento_disc_data:
+    external: true
 
 networks:
   traefik_public:
