@@ -1,0 +1,61 @@
+{
+    "PCoins": {
+        "Config": {
+            "name": "PCoins",
+            "desc": "Pcoins para comprar intens dentro do seu jogo",
+            "entrega": "Sim"
+        },
+        "Campos": [
+            {
+                "estoque": [],
+                "valor": 10,
+                "Nome": "10k Pcoins",
+                "desc": "",
+                "criado": 1743822837189
+            },
+            {
+                "estoque": [],
+                "valor": 50,
+                "Nome": "50k Pcoins",
+                "desc": "",
+                "criado": 1743822880644
+            },
+            {
+                "estoque": [],
+                "valor": 100,
+                "Nome": "100k Pcoins",
+                "desc": "",
+                "criado": 1743822916671
+            },
+            {
+                "estoque": [],
+                "valor": 200,
+                "Nome": "200k Pcoins",
+                "desc": "",
+                "criado": 1743822936774
+            },
+            {
+                "estoque": [],
+                "valor": 300,
+                "Nome": "300k Pcoins",
+                "desc": "",
+                "criado": 1743822958721
+            },
+            {
+                "estoque": [],
+                "valor": 500,
+                "Nome": "500k Pcoins",
+                "desc": "",
+                "criado": 1743823001574
+            },
+            {
+                "estoque": [],
+                "valor": 1000,
+                "Nome": "1M Pcoins",
+                "desc": "",
+                "criado": 1743823034144
+            }
+        ],
+        "Cupom": []
+    }
+}

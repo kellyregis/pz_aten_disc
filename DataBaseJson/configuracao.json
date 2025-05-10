@@ -1,0 +1,36 @@
+{
+    "Cores": {
+        "Principal": "#7400ff",
+        "Processamento": "#ffffff",
+        "Sucesso": "#00ff07",
+        "Erro": "#ff0000",
+        "Finalizado": "#0083ff"
+    },
+    "pagamentos": {
+        "MpAPI": "APP_USR-000000000000000-XX...",
+        "BancosBloqueados": [
+            "inter"
+        ],
+        "SemiAutomatico": {
+            "status": true,
+            "pix": "suachavepix@gmail.com",
+            "msg": "Envie comprovante após o pagamento e aguarde entrega!"
+        }
+    },
+    "ConfigChannels": {
+        "logpedidos": "canal-indefinido",
+        "eventbuy": "canal-indefinido",
+        "logsticket": "canal-indefinido",
+        "systemlogs": "canal-indefinido",
+        "feedback": "canal-indefinido",
+        "entradas": "canal-indefinido",
+        "saídas": "canal-indefinido",
+        "mensagens": "canal-indefinido"
+    },
+    "ConfigRoles": {
+        "cargoadm": "cargo-indefinido",
+        "cargosup": "cargo-indefinido",
+        "cargoCliente": "cargo-indefinido",
+        "cargomembro": "cargo-indefinido"
+    }
+}
